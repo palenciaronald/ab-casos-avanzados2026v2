@@ -55,6 +55,9 @@ os.environ["EXPERIMENT_DIR"] = CARPETA
 # encontrar `src/creditsight` para importar el paquete sin instalarlo (igual que en los notebooks locales)
 SRC = next(p / "src" for p in [Path.cwd().resolve(), *Path.cwd().resolve().parents] if (p / "src" / "creditsight").is_dir())
 sys.path.insert(0, str(SRC))
+os.environ["PYTHONPATH"] = f"{SRC}{os.pathsep}{os.environ.get('PYTHONPATH', '')}"   # también para procesos hijos
+print("Código del ejemplo en:", SRC)
+import creditsight  # noqa: E402,F401  (si falla aquí, la ruta impresa arriba no contiene el paquete)
 
 import matplotlib.pyplot as plt
 import mlflow
