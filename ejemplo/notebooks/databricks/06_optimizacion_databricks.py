@@ -24,19 +24,18 @@
 
 # COMMAND ----------
 
-# Si faltan librerías (ejecución interactiva sin entorno preparado), se instalan
-import subprocess
-import sys
+# MAGIC %pip install -q lightgbm xgboost optuna python-dotenv
 
-try:
-    import lightgbm, optuna  # noqa: F401
-except ImportError:
-    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "lightgbm", "xgboost", "optuna", "python-dotenv"], check=True)
+# COMMAND ----------
+
+# Reinicia Python para que la sesión vea las librerías recién instaladas
+dbutils.library.restartPython()
 
 # COMMAND ----------
 
 import json
 import os
+import sys
 import warnings
 from pathlib import Path
 
