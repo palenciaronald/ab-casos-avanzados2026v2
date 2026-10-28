@@ -1,0 +1,104 @@
+# Datos: se versionan en este repo para que al clonar esté todo disponible
+# Nota: revisa las licencias de Kaggle antes de redistribuir en un repo público.
+
+# Credenciales de Kaggle — NUNCA versionar
+kaggle.json
+.kaggle/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Notebooks: salidas pesadas (opcional, se conservan .ipynb)
+# *.ipynb
+
+# PPTs: los .md son la fuente; el HTML se versiona para verlo directo al clonar.
+# El PDF/PPTX se generan bajo demanda con Marp y no se versionan.
+ppts/**/*.pdf
+ppts/**/*.pptx
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Soluciones del instructor — NUNCA versionar (el repo lo clonan los estudiantes)
+soluciones-instructor/
+
+# Material con copyright y accesos directos locales
+literatura/
+*.lnk
+
+# Material del instructor (planeación, scripts, soluciones) — NO se publica a estudiantes
+material-instructor/
+
+# Tema 4 (NLP, FDS 4: 9-10 oct): se publica cuando se dicte. Para liberarlo,
+# borra estas 3 líneas y haz `git add data/04-nlp notebooks/04-nlp ppts/04-nlp`.
+data/04-nlp/
+notebooks/04-nlp/
+ppts/04-nlp/
+
+# Trabajos de estudiantes (datos personales) — NUNCA versionar
+laboratorios_resueltos_estudiantes/
+laboratorios_resueltos_estudiantes.zip
+
+# Documentos personales/contractuales — NUNCA versionar
+contrato/
+
+.databricks
+# Material de referencia de otra persona (curso de IA previo) — solo local
+curso_Leo_IA/
+
+# Herramientas locales: Spec Kit, agente y Databricks
+.claude/
+.specify/
+databricks.yml
+
+# Credenciales locales — NUNCA versionar
+.env
+.venv/
+
+# Entorno y salidas de verify_stage
+.verify-venv/
+.verify-out/
+
+# Datos procesados del ejemplo (se regeneran con el notebook 03)
+ejemplo/data_processed/
+
+# MLflow local de respaldo y salidas generadas
+ejemplo/mlflow_local.db
+mlruns/
+ejemplo/mlruns/
+
+# ============================================================================
+# MATERIAL DEL INSTRUCTOR (v2) — NUNCA se versiona: este repositorio es público
+# ============================================================================
+# Banco de preguntas orales, respuestas esperadas y registros por grupo
+curso/**/lista-de-control*.md
+curso/**/banco-de-preguntas*
+# Protocolo para aprobar fichas, ejemplos y plan de rescate
+curso/evaluacion/revision-de-fichas*.md
+# Cualquier solucionario, hoja de respuestas o nota privada
+curso/**/solucion*
+curso/**/*-instructor.*
+curso/**/*privado*
+**/notas-privadas*
+
+# Credenciales y configuración local (cualquier variante, salvo la plantilla .env.example)
+.env.*
+!.env.example
+*.pem
+*.key
+.databrickscfg*
+**/secrets*.toml
+.streamlit/secrets.toml
