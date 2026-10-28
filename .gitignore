@@ -102,3 +102,6 @@ curso/**/*privado*
 .databrickscfg*
 **/secrets*.toml
 .streamlit/secrets.toml
+
+# Contexto de traspaso entre sesiones de IA — NUNCA versionar
+CONTEXTO-TRASPASO.md

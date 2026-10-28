@@ -17,7 +17,10 @@
 # MAGIC Las ejecuciones **madre** (`optuna-lightgbm`, `optuna-random forest`) y, desplegadas, sus ensayos; ordena por
 # MAGIC `auc_ovr`, por `cost` o por `recall_poor`; marca ensayos y pulsa **Compare**.
 # MAGIC
-# MAGIC **Datos y código:** viven en el volumen `workspace.default.curso_creditsight` (`train.csv` y `creditsight.zip`).
+# MAGIC **Datos y código:** salen de este mismo repositorio, clonado como *Git folder* en Databricks. El notebook arma el
+# MAGIC conjunto de entrenamiento desde `data/01-clasificacion/credit_score_classification.csv` con las mismas funciones del
+# MAGIC notebook 03 (`load_raw`, `clean`, `split_by_customer`). Para actualizar el código: se sube el cambio al repo y aquí se
+# MAGIC hace *Pull* (menú de Git de la carpeta).
 
 # COMMAND ----------
 
@@ -35,11 +38,10 @@ except ImportError:
 import json
 import os
 import warnings
-import zipfile
+from pathlib import Path
 
 warnings.filterwarnings("ignore")
 
-VOLUMEN = "/Volumes/workspace/default/curso_creditsight"
 METRICA = "auc_ovr"                         # métrica que optimiza la búsqueda (todas se registran igual)
 EXPERIMENTO = "creditsight-06-optimizacion-auc"
 
@@ -50,9 +52,10 @@ USUARIO = WorkspaceClient().current_user.me().user_name
 CARPETA = f"/Users/{USUARIO}/curso_laboratorio_casos_avanzados"
 os.environ["EXPERIMENT_DIR"] = CARPETA
 
-# El código del ejemplo se descomprime aquí y se importa como cualquier paquete
-zipfile.ZipFile(f"{VOLUMEN}/creditsight.zip").extractall("/tmp/creditsight_src")
-sys.path.insert(0, "/tmp/creditsight_src")
+# Un notebook de un Git folder corre con la carpeta del notebook como directorio actual; se sube hasta
+# encontrar `src/creditsight` para importar el paquete sin instalarlo (igual que en los notebooks locales)
+SRC = next(p / "src" for p in [Path.cwd().resolve(), *Path.cwd().resolve().parents] if (p / "src" / "creditsight").is_dir())
+sys.path.insert(0, str(SRC))
 
 import matplotlib.pyplot as plt
 import mlflow
@@ -62,6 +65,7 @@ import pandas as pd
 from sklearn.metrics import roc_auc_score
 
 from creditsight.config import GROUP_COL, TARGET
+from creditsight.data.cleaning import clean, load_raw
 from creditsight.data.split import group_cv, split_by_customer
 from creditsight.models.train import build_pipeline, candidates, encode_target, metrics_from_proba
 from creditsight.models.tuning import (
@@ -85,7 +89,9 @@ print(f"Se optimiza: {METRICA} ({OBJETIVOS[METRICA]})")
 
 # COMMAND ----------
 
-train = pd.read_csv(f"{VOLUMEN}/train.csv")
+# Mismo conjunto de entrenamiento que el notebook 03: limpiar y separar la prueba final POR CLIENTE
+df = clean(load_raw())
+train, _test = split_by_customer(df, test_size=0.2)      # la prueba final no se toca aquí
 tune_df, val_df = split_by_customer(train, test_size=0.25, seed=7)
 X_tune, y_tune = tune_df.drop(columns=[TARGET]), encode_target(tune_df[TARGET])
 X_val, y_val = val_df.drop(columns=[TARGET]), encode_target(val_df[TARGET])
@@ -102,7 +108,11 @@ print(f"búsqueda: {tune_df.Customer_ID.nunique():,} clientes · validación res
 
 # COMMAND ----------
 
-TRIALS = {"lightgbm": 20, "random forest": 12}
+# Parámetro "modo": "humo" hace una prueba rápida de 2 ensayos por modelo (para comprobar que todo corre);
+# "completo" es la corrida real. Una corrida que falla se reintenta sola y duplica ejecuciones: probar primero en humo.
+dbutils.widgets.dropdown("modo", "completo", ["completo", "humo"])
+TRIALS = {"lightgbm": 2, "random forest": 2} if dbutils.widgets.get("modo") == "humo" else {"lightgbm": 20, "random forest": 12}
+print("modo:", dbutils.widgets.get("modo"), TRIALS)
 studies = {}
 
 
