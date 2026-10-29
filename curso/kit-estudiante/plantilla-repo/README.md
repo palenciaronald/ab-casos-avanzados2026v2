@@ -30,8 +30,8 @@ streamlit run app/streamlit_app.py
 ```
 
 ## De dónde viene este repositorio
-Nació de la rama `base` del repositorio del curso (ver `LEEME-PRIMERO.md`): una persona del grupo la clonó con
-`git clone --branch base --single-branch …`, la apuntó a este repo con `git remote set-url origin …` y hizo `push`. Los demás integrantes
+Nació de la rama `feature/estudiantes` del repositorio del curso (ver `LEEME-PRIMERO.md`): una persona del grupo la clonó con
+`git clone --branch feature/estudiantes --single-branch …`, la apuntó a este repo con `git remote set-url origin …` y hizo `push`. Los demás integrantes
 clonan **este** repositorio. Para arrancar, sigue `curso/guias/montaje-proyecto.md`.
 
 ## Equipo

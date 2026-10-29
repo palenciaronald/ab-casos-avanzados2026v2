@@ -20,7 +20,7 @@ pensada para que **cada grupo la clone una sola vez** y la convierta en su propi
 2. En tu equipo, clona **solo esta rama** con el nombre de tu proyecto y apúntala a tu repositorio:
 
    ```bash
-   git clone --branch base --single-branch https://github.com/palenciaronald/ab-casos-avanzados-2026.git mi-proyecto
+   git clone --branch feature/estudiantes --single-branch https://github.com/palenciaronald/ab-casos-avanzados2026v2.git mi-proyecto
    cd mi-proyecto
    git remote set-url origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
    git branch -M main

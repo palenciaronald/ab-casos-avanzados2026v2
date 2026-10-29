@@ -18,7 +18,7 @@ footer: "Clase 2 · Viernes 30 de octubre · Montaje del proyecto (demo ≤ 10 m
 
 <!--
 NOTAS DEL PRESENTADOR (demo ≤ 10 min; luego los grupos siguen la guía curso/guias/montaje-proyecto.md)
-- Tener abiertos: el repo de ejemplo en VS Code, la guía de montaje y un clon de la rama `base` en una
+- Tener abiertos: el repo de ejemplo en VS Code, la guía de montaje y un clon de la rama `feature/estudiantes` en una
   carpeta de prueba para ejecutar `verificar_entorno.py` en vivo.
 - No instalar nada en vivo: se muestra el resultado y se manda a los grupos a la guía.
 -->
@@ -27,13 +27,13 @@ NOTAS DEL PRESENTADOR (demo ≤ 10 min; luego los grupos siguen la guía curso/g
 
 # 1 · Cómo nace el repositorio del grupo
 
-**No se copian archivos a mano.** El proyecto nace de la rama `base` del curso:
+**No se copian archivos a mano.** El proyecto nace de la rama `feature/estudiantes` del curso:
 
 1. **Una persona** crea un repo de GitHub **público y vacío** (sin README).
-2. Esa persona clona **solo la rama `base`** y la apunta a su repo:
+2. Esa persona clona **solo la rama `feature/estudiantes`** y la apunta a su repo:
 
 ```bash
-git clone --branch base --single-branch https://github.com/palenciaronald/ab-casos-avanzados-2026.git mi-proyecto
+git clone --branch feature/estudiantes --single-branch https://github.com/palenciaronald/ab-casos-avanzados2026v2.git mi-proyecto
 cd mi-proyecto
 git remote set-url origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
 git branch -M main
@@ -46,7 +46,7 @@ git push -u origin main
 > Si el repo del grupo **no** estaba vacío, el primer `push` se rechaza: crea uno nuevo y vacío.
 
 <!--
-Mostrar los 5 comandos en la terminal con una carpeta de prueba. Insistir en --branch base: `main`
+Mostrar los 5 comandos en la terminal con una carpeta de prueba. Insistir en --branch feature/estudiantes: `main`
 es el curso anterior. Mostrar el LEEME-PRIMERO.md que trae la base.
 -->
 
@@ -65,7 +65,7 @@ tests/           pruebas con pytest
 models/  app/  reports/  presentacion/  scripts/
 ```
 
-**Ejemplo:** `ejemplo/` (paquete `creditsight`). **Base vacía:** la raíz de la rama `base`.
+**Ejemplo:** `ejemplo/` (paquete `creditsight`). **Base vacía:** la raíz de la rama `feature/estudiantes`.
 
 > *Regla:* la lógica va en `src/`; los notebooks importan de `src/`, nunca al revés.
 
@@ -130,7 +130,7 @@ python scripts/verificar_entorno.py
 - Termina con `Resumen: N OK · N avisos · N por arreglar`.
 
 <!--
-Ejecutarlo EN VIVO sobre un clon recién hecho de la rama `base` (saldrán varios FALTA) y volver a
+Ejecutarlo EN VIVO sobre un clon recién hecho de la rama `feature/estudiantes` (saldrán varios FALTA) y volver a
 ejecutarlo tras crear el .env: así ven el paso de rojo a verde. Dejar claro que un AVISO de Databricks
 NO bloquea.
 -->
@@ -172,7 +172,7 @@ Tabla completa en `curso/guias/montaje-proyecto.md`.
 
 # Listo cuando…
 
-- [ ] Repo **público** creado desde la rama `base`; todos clonan el repo **del grupo**
+- [ ] Repo **público** creado desde la rama `feature/estudiantes`; todos clonan el repo **del grupo**
 - [ ] Paquete de `src/` con el **nombre de tu proyecto**; `CLAUDE.md` actualizado
 - [ ] Entorno con **Python 3.12** y `requirements.txt` instalado
 - [ ] `.env` completo y **fuera de Git**

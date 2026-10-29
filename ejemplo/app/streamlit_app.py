@@ -67,8 +67,12 @@ def get_schema() -> dict:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
-def collect_inputs(schema: dict, defaults: dict) -> dict:
-    """Dibuja el formulario y devuelve una fila de entrada (NaN donde el usuario marcó 'no sé')."""
+def collect_inputs(schema: dict, defaults: dict, profile: str = "") -> dict:
+    """Dibuja el formulario y devuelve una fila de entrada (NaN donde el usuario marcó 'no sé').
+
+    La clave de cada campo incluye el perfil elegido: sin eso, Streamlit conserva el valor anterior del campo
+    y cambiar de perfil de ejemplo no actualizaría el formulario.
+    """
     numeric, categorical = required_columns()
     row = {}
     for title, fields in SECTIONS.items():
@@ -80,19 +84,19 @@ def collect_inputs(schema: dict, defaults: dict) -> dict:
                 if field in categorical:
                     options = schema["categories"][field] + [UNKNOWN]
                     default = defaults.get(field, options[0])
-                    choice = st.selectbox(label, options, index=options.index(default) if default in options else 0, key=field)
+                    choice = st.selectbox(label, options, index=options.index(default) if default in options else 0, key=f"{field}|{profile}")
                     row[field] = np.nan if choice == UNKNOWN else choice
                     continue
                 low, high = schema["observed_range"][field]
                 default = float(defaults.get(field, schema["median"][field]))
-                unknown = st.checkbox(f"No sé: {label}", key=f"unk_{field}", value=False)
+                unknown = st.checkbox(f"No sé: {label}", key=f"unk_{field}|{profile}", value=False)
                 if unknown:
                     row[field] = np.nan
                     continue
                 if field in INTEGER_FIELDS:
-                    row[field] = st.number_input(label, min_value=int(low), max_value=int(high), value=int(round(default)), step=1, key=field)
+                    row[field] = st.number_input(label, min_value=int(low), max_value=int(high), value=int(round(default)), step=1, key=f"{field}|{profile}")
                 else:
-                    row[field] = st.number_input(label, min_value=float(low), max_value=float(high), value=float(round(default, 2)), key=field)
+                    row[field] = st.number_input(label, min_value=float(low), max_value=float(high), value=float(round(default, 2)), key=f"{field}|{profile}")
     return row
 
 
@@ -110,7 +114,7 @@ def main():
     defaults = examples.get(choice, {}) if choice in examples else {}
 
     with st.form("cliente"):
-        row = collect_inputs(schema, defaults)
+        row = collect_inputs(schema, defaults, profile=choice)
         submitted = st.form_submit_button("Evaluar cliente", type="primary")
 
     if not submitted:

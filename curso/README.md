@@ -21,7 +21,7 @@ La entrega del reporte técnico final (**hito H4**) es el **domingo 15 de noviem
 | Carpeta | Contenido |
 |---|---|
 | [`guias/`](guias/) | Instalación, Git y GitHub, desarrollo con IA, Databricks y MLflow, despliegue en Streamlit |
-| [`kit-estudiante/`](kit-estudiante/) | Lo que cada grupo recibe en la rama `base`: `CLAUDE.md`, especificación, prompts, checklist y plantilla de repo |
+| [`kit-estudiante/`](kit-estudiante/) | Lo que cada grupo recibe en la rama `feature/estudiantes`: `CLAUDE.md`, especificación, prompts, checklist y plantilla de repo |
 | [`evaluacion/`](evaluacion/) | Rúbrica, hitos, criterios de dataset, ficha de caso, guía de exposición y aporte individual |
 
 El **ejemplo de referencia** (CreditSight) está en [`../ejemplo/`](../ejemplo/); de él salen las demos.

@@ -123,8 +123,8 @@ FIN DE LA BIENVENIDA. Continuar con el mapa de lo visto en el curso previo.
 # Tarea para mañana
 
 1. **Terminar y corregir la ficha de caso** de tu grupo.
-2. **Crear el repositorio del grupo**: una persona lo crea **vacío** en GitHub, clona la rama `base` del curso
-   (`git clone --branch base …`) y la apunta a ese repo; **compartir el enlace**.
+2. **Crear el repositorio del grupo**: una persona lo crea **vacío** en GitHub, clona la rama `feature/estudiantes` del curso
+   (`git clone --branch feature/estudiantes …`) y la apunta a ese repo; **compartir el enlace**.
 3. Si quedó algo **pendiente de la instalación**, resolverlo con la guía o pedir apoyo antes de la
    clase.
 4. Quien tenga dudas del **diagnóstico**, revisar el material del curso previo del tema señalado.

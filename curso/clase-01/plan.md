@@ -98,7 +98,7 @@ Al terminar la clase 1, cada estudiante:
   poder explicar el código que la IA generó*, y que habrá una pregunta oral.
 - **Kit** (`curso/kit-estudiante/`): mostrar `CLAUDE.md`, la plantilla de especificación del
   proyecto, los prompts por etapa y la lista de revisión del código generado. Decir de dónde sale: viene en la
-  raíz de la rama `base`, que cada grupo clona una vez y apunta a su repositorio (ver `LEEME-PRIMERO.md`); la IA lo lee antes de generar nada.
+  raíz de la rama `feature/estudiantes`, que cada grupo clona una vez y apunta a su repositorio (ver `LEEME-PRIMERO.md`); la IA lo lee antes de generar nada.
 
 ### 3:20 · Elección del caso y ficha (35 min)
 Se proyecta `eleccion-de-caso.md` (**15 diapositivas**: se proyectan hasta "La ficha de caso" y la lista rápida y el cierre quedan de apoyo).
@@ -114,7 +114,7 @@ Se proyecta `eleccion-de-caso.md` (**15 diapositivas**: se proyectan hasta "La f
 
 ### 3:55 · Cierre (5 min)
 - **Tarea:** completar y corregir la ficha; dejar el repositorio del grupo creado (una persona lo crea
-  vacío, clona la rama `base` y la apunta al repo del grupo) y compartir el enlace.
+  vacío, clona la rama `feature/estudiantes` y la apunta al repo del grupo) y compartir el enlace.
 - **Mañana:** la ficha se aprueba o se devuelve en la primera media hora.
 
 ## Plan B si la instalación falla
@@ -141,6 +141,6 @@ Se proyecta `eleccion-de-caso.md` (**15 diapositivas**: se proyectan hasta "La f
 
 - [ ] `mapa-curso-previo`, `diagnostico`, `nivelacion`, `tecnologias` y `eleccion-de-caso` revisados y exportados a HTML.
 - [ ] Rúbrica publicada y accesible para todos.
-- [ ] La rama `base` publicada en GitHub y su enlace listo para compartir (`LEEME-PRIMERO.md` explica cómo clonarla).
+- [ ] La rama `feature/estudiantes` publicada en GitHub y su enlace listo para compartir (`LEEME-PRIMERO.md` explica cómo clonarla).
 - [ ] Un apoyo para la instalación (otra persona o un grupo avanzado).
 - [ ] Ejemplo de CreditSight abierto (`ejemplo/reports/00_caso.md`).

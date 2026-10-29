@@ -23,7 +23,7 @@ for stream in (sys.stdout, sys.stderr):
         stream.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parents[1]
-COURSE_REPO = "ab-casos-avanzados"  # nombre del repositorio del curso: tu origin NO debe apuntar ahí
+COURSE_REPO = "ab-casos-avanzados2026v2"  # nombre del repositorio del curso: tu origin NO debe apuntar ahí
 PLACEHOLDERS = ("nombre-de-tu-perfil", "pega-aqui", "TU-WORKSPACE", "tu-correo")
 REQUIRED_PACKAGES = {
     "pandas": "pandas",
@@ -140,7 +140,7 @@ def check_structure() -> None:
     missing_files = [f for f in EXPECTED_FILES if not (ROOT / f).exists()]
     if missing_dirs or missing_files:
         add("FALTA", "Estructura del repo incompleta: " + ", ".join(missing_dirs + missing_files),
-            "Revisa que clonaste la rama base completa (ver LEEME-PRIMERO.md)")
+            "Revisa que clonaste la rama `feature/estudiantes` completa (ver LEEME-PRIMERO.md)")
     else:
         add("OK", "Estructura del repo completa (carpetas y archivos de la plantilla)")
     src = ROOT / "src"

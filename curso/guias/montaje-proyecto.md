@@ -54,7 +54,7 @@ Al final, **todos** ejecutan el paso 10 en su propio equipo.
 
 ## Paso 2 · Clonar la base y apuntarla a tu repositorio
 
-El proyecto **nace de la rama `base`** del repositorio del curso: su raíz es la plantilla (con
+El proyecto **nace de la rama `feature/estudiantes`** del repositorio del curso: su raíz es la plantilla (con
 `CLAUDE.md`, `especificacion-proyecto.md`, `scripts/`, `src/proyecto/`…) y trae además la carpeta
 `material-del-curso/` para consultar. **No hay que copiar nada a mano.**
 
@@ -62,7 +62,7 @@ El proyecto **nace de la rama `base`** del repositorio del curso: su raíz es la
 PowerShell y en macOS Terminal):
 
 ```bash
-git clone --branch base --single-branch https://github.com/palenciaronald/ab-casos-avanzados-2026.git mi-proyecto
+git clone --branch feature/estudiantes --single-branch https://github.com/palenciaronald/ab-casos-avanzados2026v2.git mi-proyecto
 cd mi-proyecto
 git remote set-url origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
 git branch -M main
@@ -268,7 +268,7 @@ Git y datos, y marca cada línea:
 | `FALTA  Paquetes sin instalar: …` | `uv pip install -r requirements.txt` (con el entorno activado) |
 | `FALTA  No existe el archivo .env` | Copia `.env.example` como `.env` (paso 5) |
 | `FALTA  .env NO está en .gitignore` | Añade una línea `.env` al `.gitignore`: si lo subes, expones tus credenciales |
-| `FALTA  Estructura del repo incompleta: …` | Revisa que clonaste la rama `base` completa (paso 2); el mensaje dice qué falta |
+| `FALTA  Estructura del repo incompleta: …` | Revisa que clonaste la rama `feature/estudiantes` completa (paso 2); el mensaje dice qué falta |
 | `FALTA  No hay ningún paquete dentro de src/` | Debe existir `src/<nombre>/__init__.py` (paso 3) |
 | `FALTA  La carpeta no es un repositorio de Git` | Clona el repo del grupo (paso 2) o ejecuta `git init` |
 | `AVISO  Python 3.x: el curso usa 3.12` | Borra `.venv` y crea el entorno con `uv venv --python 3.12` |
@@ -313,7 +313,7 @@ git push
 
 ## Listo cuando…
 
-- [ ] **1.** Tengo un repositorio **público** en GitHub, creado desde la rama `base` (la estructura de la plantilla está en la raíz), y **todos** clonamos el repo **del grupo**.
+- [ ] **1.** Tengo un repositorio **público** en GitHub, creado desde la rama `feature/estudiantes` (la estructura de la plantilla está en la raíz), y **todos** clonamos el repo **del grupo**.
 - [ ] **2.** El paquete de `src/` tiene el **nombre de mi proyecto** y `CLAUDE.md` ya no menciona `proyecto`.
 - [ ] **3.** Tengo un entorno con **Python 3.12** y `requirements.txt` instalado.
 - [ ] **4.** Mi `.env` está completo y **fuera de Git**.
@@ -331,7 +331,7 @@ git push
 | **`UnicodeEncodeError: 'charmap' codec can't encode character …`** (Windows) | La consola usa cp1252. El experimento **sí** se registró. Asegura `PYTHONUTF8=1` en `.env`, o ejecuta antes `$env:PYTHONUTF8 = "1"` en PowerShell |
 | **`error: remote origin already exists`** | Usaste `git remote add origin` en una carpeta clonada de la base: ya tiene un `origin` (el del curso). Usa `git remote set-url origin <url-del-repo-del-grupo>` |
 | **`git push` rechazado al apuntar al repo del grupo** (`rejected`, `fetch first`, `refusing to merge unrelated histories`) | El repo del grupo **no estaba vacío** (tiene un README u otro archivo creado por GitHub). Si no tiene nada que quieras conservar, usa `git push -u origin main --force` **una sola vez, solo en ese primer push** y solo si el repo es nuevo; si sí tiene algo valioso, `git pull origin main --allow-unrelated-histories`, resuelve conflictos y `git push -u origin main`. Lo más simple: crea un repo **nuevo y vacío** |
-| **Hice `git clone` del repo del curso sin `--branch base`** | Tienes la rama equivocada (`main` es el curso anterior). Borra la carpeta y repite el comando del paso 2 con `--branch base --single-branch` |
+| **Hice `git clone` del repo del curso sin `--branch feature/estudiantes`** | Tienes la rama equivocada (`main` es el material del instructor). Borra la carpeta y repite el comando del paso 2 con `--branch feature/estudiantes --single-branch` |
 | **`git push` rechazado** (`rejected`, `non-fast-forward`, `fetch first`) | Alguien subió cambios antes que tú. Ejecuta `git pull --rebase` y luego `git push`. Si pide credenciales, inicia sesión en GitHub desde VS Code (*Cuentas*) |
 | **`git push` pide usuario y contraseña** | GitHub ya no acepta contraseña: inicia sesión desde VS Code o usa un token personal de GitHub |
 | **Falla `uv pip install -r requirements.txt`** | Casi siempre es Python 3.13 o 3.14: borra `.venv` y crea el entorno con `uv venv --python 3.12`. Si es un error de red, repite el comando |

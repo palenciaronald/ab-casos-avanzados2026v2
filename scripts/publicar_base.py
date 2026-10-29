@@ -1,16 +1,17 @@
-"""Genera (o actualiza) la rama `base`: lo ÚNICO que se entrega a los estudiantes.
+"""Genera (o actualiza) la rama `feature/estudiantes`: lo ÚNICO que se entrega a los estudiantes.
 
-La rama `base` es una rama HUÉRFANA: no comparte historial con `v2`. Así, nada del material del
-instructor puede recuperarse del historial de `base`. Se construye desde cero a partir de `v2`
-con una lista de lo que SÍ se entrega; todo lo demás (specs, planes de clase, banco de preguntas
-orales, revisión de fichas, datos con licencia dudosa, credenciales) se queda fuera.
+La rama es HUÉRFANA: no comparte historial con `main`. Así, el material del instructor no puede
+recuperarse recorriendo el historial de esa rama. (`main` es público: esto da orden, no secreto.)
+Se construye desde cero a partir de `main` con una lista de lo que SÍ se entrega; todo lo demás
+(specs, planes de clase, banco de preguntas orales, revisión de fichas, credenciales) se queda fuera.
 
-Uso (desde la raíz del repo, con el trabajo de `v2` ya commiteado):
+Uso (desde la raíz del repo, con el trabajo de `main` ya commiteado):
 
-    python scripts/publicar_base.py            # crea/actualiza la rama base en LOCAL
+    python scripts/publicar_base.py            # crea/actualiza la rama en LOCAL
     python scripts/publicar_base.py --ver      # solo muestra qué contendría, sin tocar Git
+    python scripts/publicar_base.py --recrear  # borra la rama local y la crea de nuevo, huérfana
 
-No sube nada a GitHub: el `git push origin base` lo haces tú.
+No sube nada a GitHub: el `git push` lo haces tú.
 """
 import re
 import shutil
@@ -20,13 +21,13 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_BRANCH = "base"
+BASE_BRANCH = "feature/estudiantes"
 
 # ---- qué se entrega y dónde queda dentro de la rama base ----
 PLANTILLA = ROOT / "curso" / "kit-estudiante" / "plantilla-repo"  # va a la RAÍZ de base
 MATERIAL = "material-del-curso"
 
-# (origen relativo a la raíz de v2, destino dentro de base, archivos a excluir por nombre)
+# (origen relativo a la raíz de main, destino dentro de base, archivos a excluir por nombre)
 COPIAS = [
     ("curso/guias", f"{MATERIAL}/guias", set()),
     ("curso/evaluacion", f"{MATERIAL}/evaluacion", {"revision-de-fichas.md"}),  # esta es del instructor
@@ -36,7 +37,7 @@ COPIAS = [
 # presentaciones: solo el HTML proyectable de cada clase (no el .md con notas, ni los planes)
 PRESENTACIONES = "curso/clase-*/diapositivas/*.html"
 
-# ---- reescritura de rutas dentro de los .md (de rutas de v2 a rutas de base); de lo específico a lo general ----
+# ---- reescritura de rutas dentro de los .md (de rutas de main a rutas de la rama de estudiantes); de lo específico a lo general ----
 RUTAS = [
     ("ejemplo/scripts/check_databricks.py", "scripts/check_databricks.py"),
     ("curso/kit-estudiante/especificacion-proyecto.md", "especificacion-proyecto.md"),
@@ -51,11 +52,11 @@ RUTAS = [
     ("curso/evaluacion", f"{MATERIAL}/evaluacion"),
     ("ejemplo/", f"{MATERIAL}/ejemplo-creditsight/"),
 ]
-IGNORAR = shutil.ignore_patterns("__pycache__", ".ipynb_checkpoints", "*.pyc", ".pytest_cache", "*.db", ".verify-*")
+IGNORAR = shutil.ignore_patterns("__pycache__", ".ipynb_checkpoints", "*.pyc", ".pytest_cache", "*.db", ".verify-*", "mlruns", "*.pkl", "*.joblib")
 
 # ---- guardas: si algo de esto aparece en lo que se entrega, el script aborta ----
 PROHIBIDO_EN_NOMBRE = [r"(^|/)\.env$", r"lista-de-control", r"revision-de-fichas", r"(^|/)specs/", r"(^|/)\.specify/",
-                       r"(^|/)\.claude/", r"/plan\.md$", r"(^|/)contrato", r"soluciones", r"^(?!.*/reports/).*\.csv$", r"\.joblib$", r"\.parquet$"]
+                       r"(^|/)\.claude/", r"/plan\.md$", r"(^|/)contrato", r"soluciones", r"^(?!.*/reports/).*\.csv$", r"\.joblib$", r"\.pkl$", r"\.parquet$", r"(^|/)mlruns(/|$)"]
 PROHIBIDO_EN_CONTENIDO = [r"ronaldpalencia", r"dbc-[0-9a-f]{8}", r"\bdapi[0-9a-f]{20,}", r"0cd50471", r"banco de preguntas"]
 AVISOS_EN_CONTENIDO = [r"PENDIENTE: instructor"]
 
@@ -65,7 +66,7 @@ def git(*args, cwd=ROOT, check=True):
 
 
 def reescribir(texto: str) -> str:
-    """Cambia rutas de v2 por rutas de base. El lookbehind evita tocar lo que ya está en formato de base
+    """Cambia rutas de main por rutas de la rama de estudiantes. El lookbehind evita tocar lo que ya está en formato de base
     (por ejemplo `material-del-curso/guias/` contiene `curso/guias/`)."""
     for viejo, nuevo in RUTAS:
         texto = re.sub(r"(?<![\w/-])" + re.escape(viejo), lambda m, n=nuevo: n, texto)
@@ -129,7 +130,7 @@ def auditar(destino: Path) -> list:
 def main() -> int:
     solo_ver = "--ver" in sys.argv
     if git("status", "--porcelain"):
-        print("AVISO: hay cambios sin commitear en v2; la rama base se construye desde el árbol de trabajo actual.")
+        print("AVISO: hay cambios sin commitear en main; la rama se construye desde el árbol de trabajo actual.")
     tmp = Path(tempfile.mkdtemp(prefix="base_"))
     arbol = tmp / "arbol"
     arbol.mkdir()
@@ -150,9 +151,17 @@ def main() -> int:
         shutil.rmtree(tmp, ignore_errors=True)
         return 0
 
-    # worktree aparte: no se toca el árbol de trabajo de v2
+    # worktree aparte: no se toca el árbol de trabajo de main
     wt = tmp / "wt"
     existe = bool(git("branch", "--list", BASE_BRANCH))
+    if existe and "--recrear" in sys.argv:
+        git("branch", "-D", BASE_BRANCH)           # solo la copia local; el remoto no se toca
+        existe = False
+    if existe and git("merge-base", BASE_BRANCH, "main", check=False):
+        print(f"ERROR: '{BASE_BRANCH}' comparte historial con main (no es huérfana). "
+              "Ejecuta de nuevo con --recrear para borrarla en local y crearla limpia.")
+        shutil.rmtree(tmp, ignore_errors=True)
+        return 1
     if existe:
         git("worktree", "add", str(wt), BASE_BRANCH)
     else:
@@ -166,7 +175,7 @@ def main() -> int:
         git("add", "-A", cwd=wt)
         if git("status", "--porcelain", cwd=wt):
             origen = git("rev-parse", "--short", "HEAD")
-            mensaje = f"Actualiza la base para estudiantes (generada desde v2 {origen})"
+            mensaje = f"Actualiza la rama de estudiantes (generada desde main {origen})"
             subprocess.run(["git", "commit", "-q", "-m", mensaje, "-m", "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"],
                            cwd=wt, check=True, capture_output=True)
             print(f"Rama '{BASE_BRANCH}' actualizada: {git('log', '--oneline', '-1', BASE_BRANCH)}")
@@ -175,7 +184,7 @@ def main() -> int:
     finally:
         git("worktree", "remove", "--force", str(wt), check=False)
         shutil.rmtree(tmp, ignore_errors=True)
-    print("Para publicarla:  git push -u origin base   (no se ha subido nada)")
+    print(f"Para publicarla:  git push -u origin {BASE_BRANCH}   (no se ha subido nada)")
     return 0
 
 

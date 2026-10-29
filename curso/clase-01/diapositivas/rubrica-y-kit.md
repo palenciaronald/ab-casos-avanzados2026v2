@@ -17,7 +17,7 @@ footer: "Clase 1 · Jueves 29 de octubre · Rúbrica y kit (15 min)"
 <!--
 NOTAS DEL PRESENTADOR (15 min: ~7 de rúbrica y ~8 de kit)
 - La ponderación de la diapositiva 2 es la definitiva (suma 100 %). Si la cambias, actualiza también
-  `curso/evaluacion/rubrica.md` y vuelve a generar la rama base.
+  `curso/evaluacion/rubrica.md` y vuelve a generar la rama `feature/estudiantes`.
 - Mostrar el documento completo (rubrica.md) abierto, no solo estas diapositivas.
 -->
 
@@ -105,14 +105,14 @@ Se trabaja en grupo, **pero se evalúa a cada persona**:
 | **`especificacion-proyecto.md`** | Plantilla que el grupo llena: caso, dataset, métrica, entregables, riesgos |
 | **`prompts-por-etapa.md`** | Un prompt probado para cada etapa, con qué esperar y cómo revisarlo |
 | **`checklist-revision-ia.md`** | Cómo revisar el código que generó la IA antes de aceptarlo |
-| **La raíz de la rama `base`** | La estructura vacía del repositorio del grupo: todo lo anterior ya viene en ella |
+| **La raíz de la rama `feature/estudiantes`** | La estructura vacía del repositorio del grupo: todo lo anterior ya viene en ella |
 
 ---
 
 # Cómo se usa el kit
 
-1. **Una persona** crea el repositorio del grupo (público y **vacío**) y clona **la rama `base`**
-   del curso apuntándola a ese repo (`git clone --branch base …` y `git remote set-url origin …`).
+1. **Una persona** crea el repositorio del grupo (público y **vacío**) y clona **la rama `feature/estudiantes`**
+   del curso apuntándola a ese repo (`git clone --branch feature/estudiantes …` y `git remote set-url origin …`).
 2. **Los demás** clonan el repo **del grupo**; la plantilla y el kit ya vienen incluidos.
 3. **Llenar** `especificacion-proyecto.md` (la ficha de caso es su base).
 4. **Abrir** el proyecto en VS Code con la extensión de Claude Code.

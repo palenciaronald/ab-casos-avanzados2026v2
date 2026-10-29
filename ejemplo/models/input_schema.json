@@ -1,0 +1,297 @@
+{
+  "numeric": [
+    "Age",
+    "Annual_Income",
+    "Monthly_Inhand_Salary",
+    "Num_Bank_Accounts",
+    "Num_Credit_Card",
+    "Interest_Rate",
+    "Num_of_Loan",
+    "Delay_from_due_date",
+    "Num_of_Delayed_Payment",
+    "Changed_Credit_Limit",
+    "Num_Credit_Inquiries",
+    "Outstanding_Debt",
+    "Credit_Utilization_Ratio",
+    "Credit_History_Months",
+    "Total_EMI_per_month",
+    "Amount_invested_monthly",
+    "Monthly_Balance"
+  ],
+  "categorical": [
+    "Occupation",
+    "Payment_of_Min_Amount",
+    "Payment_Behaviour",
+    "Credit_Mix"
+  ],
+  "class_names": [
+    "Poor",
+    "Standard",
+    "Good"
+  ],
+  "categories": {
+    "Occupation": [
+      "Accountant",
+      "Architect",
+      "Developer",
+      "Doctor",
+      "Engineer",
+      "Entrepreneur",
+      "Journalist",
+      "Lawyer",
+      "Manager",
+      "Mechanic",
+      "Media_Manager",
+      "Musician",
+      "Scientist",
+      "Teacher",
+      "Writer"
+    ],
+    "Payment_of_Min_Amount": [
+      "NM",
+      "No",
+      "Yes"
+    ],
+    "Payment_Behaviour": [
+      "High_spent_Large_value_payments",
+      "High_spent_Medium_value_payments",
+      "High_spent_Small_value_payments",
+      "Low_spent_Large_value_payments",
+      "Low_spent_Medium_value_payments",
+      "Low_spent_Small_value_payments"
+    ],
+    "Credit_Mix": [
+      "Bad",
+      "Good",
+      "Standard"
+    ]
+  },
+  "observed_range": {
+    "Age": [
+      14.0,
+      56.0
+    ],
+    "Annual_Income": [
+      7006.035,
+      179987.28
+    ],
+    "Monthly_Inhand_Salary": [
+      332.12833333333333,
+      15204.633333333331
+    ],
+    "Num_Bank_Accounts": [
+      0.0,
+      10.0
+    ],
+    "Num_Credit_Card": [
+      0.0,
+      11.0
+    ],
+    "Interest_Rate": [
+      1.0,
+      34.0
+    ],
+    "Num_of_Loan": [
+      0.0,
+      9.0
+    ],
+    "Delay_from_due_date": [
+      -5.0,
+      67.0
+    ],
+    "Num_of_Delayed_Payment": [
+      0.0,
+      28.0
+    ],
+    "Changed_Credit_Limit": [
+      -6.49,
+      36.97
+    ],
+    "Num_Credit_Inquiries": [
+      0.0,
+      17.0
+    ],
+    "Outstanding_Debt": [
+      0.23,
+      4998.07
+    ],
+    "Credit_Utilization_Ratio": [
+      20.10076996070649,
+      49.56451934738699
+    ],
+    "Credit_History_Months": [
+      1.0,
+      404.0
+    ],
+    "Total_EMI_per_month": [
+      0.0,
+      1977.0
+    ],
+    "Amount_invested_monthly": [
+      0.0,
+      1977.326102249349
+    ],
+    "Monthly_Balance": [
+      0.0077596647753352,
+      1567.2083088202485
+    ]
+  },
+  "median": {
+    "Age": 33.0,
+    "Annual_Income": 37035.149999999994,
+    "Monthly_Inhand_Salary": 3095.905,
+    "Num_Bank_Accounts": 5.0,
+    "Num_Credit_Card": 5.0,
+    "Interest_Rate": 13.0,
+    "Num_of_Loan": 3.0,
+    "Delay_from_due_date": 18.0,
+    "Num_of_Delayed_Payment": 14.0,
+    "Changed_Credit_Limit": 9.39,
+    "Num_Credit_Inquiries": 5.0,
+    "Outstanding_Debt": 1163.435,
+    "Credit_Utilization_Ratio": 32.32888233689879,
+    "Credit_History_Months": 219.0,
+    "Total_EMI_per_month": 66.54971870576651,
+    "Amount_invested_monthly": 129.18054378547208,
+    "Monthly_Balance": 336.4743659701261
+  },
+  "integer_columns": [
+    "Age",
+    "Num_Bank_Accounts",
+    "Num_Credit_Card",
+    "Interest_Rate",
+    "Num_of_Loan",
+    "Delay_from_due_date",
+    "Num_of_Delayed_Payment",
+    "Num_Credit_Inquiries",
+    "Credit_History_Months"
+  ],
+  "valid_range": {
+    "Age": [
+      14.0,
+      100.0
+    ],
+    "Annual_Income": [
+      0.0,
+      300000.0
+    ],
+    "Num_Bank_Accounts": [
+      0.0,
+      11.0
+    ],
+    "Num_Credit_Card": [
+      0.0,
+      11.0
+    ],
+    "Interest_Rate": [
+      0.0,
+      34.0
+    ],
+    "Num_of_Loan": [
+      0.0,
+      9.0
+    ],
+    "Num_of_Delayed_Payment": [
+      0.0,
+      28.0
+    ],
+    "Num_Credit_Inquiries": [
+      0.0,
+      17.0
+    ],
+    "Total_EMI_per_month": [
+      0.0,
+      2000.0
+    ]
+  },
+  "labels": {},
+  "examples": {
+    "Perfil de bajo riesgo (Good)": {
+      "Age": 49.0,
+      "Annual_Income": 75490.22,
+      "Monthly_Inhand_Salary": 6502.85,
+      "Num_Bank_Accounts": 1.0,
+      "Num_Credit_Card": 2.0,
+      "Interest_Rate": 2.0,
+      "Num_of_Loan": 1.0,
+      "Delay_from_due_date": 11.0,
+      "Num_of_Delayed_Payment": 7.0,
+      "Changed_Credit_Limit": 8.02,
+      "Num_Credit_Inquiries": 6.0,
+      "Outstanding_Debt": 233.03,
+      "Credit_Utilization_Ratio": 26.96,
+      "Credit_History_Months": 399.0,
+      "Total_EMI_per_month": 42.19,
+      "Amount_invested_monthly": 597.3,
+      "Monthly_Balance": 300.8,
+      "Occupation": "Manager",
+      "Payment_of_Min_Amount": "No",
+      "Payment_Behaviour": "Low_spent_Small_value_payments",
+      "Credit_Mix": "Good"
+    },
+    "Perfil intermedio (Standard)": {
+      "Age": 23.0,
+      "Annual_Income": 42577.86,
+      "Monthly_Inhand_Salary": 3782.16,
+      "Num_Bank_Accounts": 6.0,
+      "Num_Credit_Card": 8.0,
+      "Interest_Rate": 20.0,
+      "Num_of_Loan": 9.0,
+      "Delay_from_due_date": 54.0,
+      "Num_of_Delayed_Payment": 21.0,
+      "Changed_Credit_Limit": 26.86,
+      "Num_Credit_Inquiries": 14.0,
+      "Outstanding_Debt": 4122.31,
+      "Credit_Utilization_Ratio": 26.41,
+      "Credit_History_Months": 66.0,
+      "Total_EMI_per_month": 171.58,
+      "Amount_invested_monthly": 36.03,
+      "Monthly_Balance": 410.61,
+      "Occupation": "Musician",
+      "Payment_of_Min_Amount": "NM",
+      "Payment_Behaviour": "High_spent_Large_value_payments",
+      "Credit_Mix": "Bad"
+    },
+    "Perfil de alto riesgo (Poor)": {
+      "Age": 40.0,
+      "Annual_Income": 53320.08,
+      "Monthly_Inhand_Salary": 4387.34,
+      "Num_Bank_Accounts": 8.0,
+      "Num_Credit_Card": 7.0,
+      "Interest_Rate": 2.0,
+      "Num_of_Loan": 2.0,
+      "Delay_from_due_date": 21.0,
+      "Num_of_Delayed_Payment": 14.0,
+      "Changed_Credit_Limit": 3.54,
+      "Num_Credit_Inquiries": 3.0,
+      "Outstanding_Debt": 592.65,
+      "Credit_Utilization_Ratio": 29.87,
+      "Credit_History_Months": 241.0,
+      "Total_EMI_per_month": 45.79,
+      "Amount_invested_monthly": 39.17,
+      "Monthly_Balance": 593.78,
+      "Occupation": "Accountant",
+      "Payment_of_Min_Amount": "No",
+      "Payment_Behaviour": "High_spent_Large_value_payments",
+      "Credit_Mix": "Good"
+    }
+  },
+  "review_threshold": 0.55,
+  "cost_matrix": [
+    [
+      0.0,
+      3.0,
+      10.0
+    ],
+    [
+      1.0,
+      0.0,
+      3.0
+    ],
+    [
+      2.0,
+      1.0,
+      0.0
+    ]
+  ]
+}

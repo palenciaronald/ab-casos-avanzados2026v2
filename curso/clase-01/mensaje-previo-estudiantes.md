@@ -70,7 +70,7 @@ Nos vemos el jueves.
 ## Notas para ti (no enviar)
 
 - Envíalo **ya**: les quedan solo unos días y necesitan cuentas nuevas y, quizá, un plan de pago.
-- Antes de enviarlo, **publica la rama `base` actualizada** y pega el enlace correcto a la guía de
+- Antes de enviarlo, **publica la rama `feature/estudiantes` actualizada** y pega el enlace correcto a la guía de
   instalación (`material-del-curso/guias/instalacion.md` dentro de esa rama).
 - Define también **por dónde recibirás las fichas y los enlaces de repos** el jueves en la tarde, y
   añádelo a este mensaje o dilo en la clase 1.

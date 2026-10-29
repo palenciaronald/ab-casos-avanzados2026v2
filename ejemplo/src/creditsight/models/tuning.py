@@ -133,6 +133,23 @@ def bootstrap_cost_difference(y_true, proba_a, proba_b, groups, n_boot: int = 10
     return float(sums.sum() / counts.sum()), float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))
 
 
+def bootstrap_metric_ci(y_true, proba, groups, metric_fn, n_boot: int = 300, seed: int = RANDOM_STATE):
+    """Una métrica con su intervalo del 95 %, remuestreando CLIENTES completos (no filas).
+
+    `metric_fn(y_true, proba)` devuelve un número. Devuelve (valor, límite inferior, límite superior).
+    """
+    y_true = np.asarray(y_true)
+    groups = np.asarray(groups)
+    index_by_customer = pd.Series(np.arange(len(groups))).groupby(groups).apply(lambda s: s.to_numpy()).to_numpy()
+    rng = np.random.default_rng(seed)
+    values = []
+    for _ in range(n_boot):
+        picked = rng.integers(0, len(index_by_customer), len(index_by_customer))
+        rows = np.concatenate([index_by_customer[i] for i in picked])
+        values.append(metric_fn(y_true[rows], proba[rows]))
+    return float(metric_fn(y_true, proba)), float(np.percentile(values, 2.5)), float(np.percentile(values, 97.5))
+
+
 def bootstrap_metric_difference(y_true, proba_a, proba_b, groups, metric_fn, n_boot: int = 300, seed: int = RANDOM_STATE):
     """Diferencia de una métrica cualquiera (A menos B) con intervalo del 95 %, remuestreando CLIENTES completos.
 

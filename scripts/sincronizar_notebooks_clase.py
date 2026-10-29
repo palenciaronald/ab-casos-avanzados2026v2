@@ -17,8 +17,8 @@ SOURCE = ROOT / "ejemplo" / "notebooks"
 # carpeta de clase -> notebooks del ejemplo que se muestran en esa clase
 CLASES = {
     "clase-02": ["01_caso_negocio", "02_eda", "03_preprocesamiento"],
-    "clase-03": ["04_features", "05_torneo"],  # el 06_optimizacion se agrega al ejecutar la etapa 6
-    # Se agregan cuando existan las demos: "clase-03": ["04_features", "05_torneo", "06_optimizacion"], ...
+    "clase-03": ["04_features", "05_torneo", "06_optimizacion"],
+    "clase-04": ["07_validacion_interpretacion", "08_registro_modelo", "09_inferencia"],
 }
 
 SETUP = '''import sys

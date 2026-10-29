@@ -7,7 +7,7 @@
 Al terminar la clase 2, cada grupo tiene:
 
 1. Una **ficha de caso aprobada** por el instructor.
-2. El **proyecto montado y verificado**: repositorio propio creado desde la rama `base`, entorno con
+2. El **proyecto montado y verificado**: repositorio propio creado desde la rama `feature/estudiantes`, entorno con
    Python 3.12, `.env` con la conexión a Databricks (o el respaldo local), `especificacion-proyecto.md`
    completada y `CLAUDE.md` ajustado, todo subido a GitHub.
 3. Un **EDA** que termina en decisiones escritas (mínimo 5, cada una justificada).
@@ -56,7 +56,7 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
 - Devolver las fichas de la clase 1: **aprobadas**, **devueltas** (con observaciones concretas) o
   **pendientes**. El protocolo y las observaciones modelo están en `curso/evaluacion/revision-de-fichas.md`.
 - Mientras el instructor pasa por cada grupo, **los demás** terminan lo que quedó pendiente de la
-  instalación de la clase 1 (`python scripts/verificar_entorno.py`) y empiezan el montaje (una persona crea el repo vacío y clona la rama `base`; los demás clonan el repo del grupo).
+  instalación de la clase 1 (`python scripts/verificar_entorno.py`) y empiezan el montaje (una persona crea el repo vacío y clona la rama `feature/estudiantes`; los demás clonan el repo del grupo).
 - **Regla:** ningún grupo avanza al EDA sin ficha aprobada. Un grupo sin caso a las 0:30 se sienta con
   el instructor durante el montaje (plan de rescate en `revision-de-fichas.md`).
 
@@ -65,7 +65,7 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
   repo, `.env` y Databricks (perfil o token, `EXPERIMENT_DIR`, respaldo local), `especificacion-proyecto.md`,
   `CLAUDE.md` y el script de verificación.
 - **Trabajo de grupos (40 min):** cada grupo sigue `curso/guias/montaje-proyecto.md`: repo propio (clonado
-  de la rama `base`), entorno, `.env`, carpeta de experimentos en Databricks, especificación completada con su
+  de la rama `feature/estudiantes`), entorno, `.env`, carpeta de experimentos en Databricks, especificación completada con su
   ficha, dataset en `data/raw/`, primer commit y push.
 - **Punto de control 1 (1:20):** ficha aprobada **y** `python scripts/verificar_entorno.py` sin ningún
   `FALTA` **y** primer push hecho. Un grupo que no llega pasa a apoyo individual; no se bloquea la clase.
@@ -121,7 +121,7 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
 Tomados de `specs/001-curso-v2-end-to-end/contracts/etapas.md`:
 
 - **Ficha aprobada.**
-- **Proyecto montado**: repo creado desde la rama `base`, entorno verificado y primer push.
+- **Proyecto montado**: repo creado desde la rama `feature/estudiantes`, entorno verificado y primer push.
 - **EDA con al menos 5 decisiones justificadas** (`reports/01_eda.md`).
 - **Partición por la unidad correcta, documentada** y verificada con una prueba.
 - **Limpieza reproducible por script**: corre de principio a fin desde el repositorio del grupo.

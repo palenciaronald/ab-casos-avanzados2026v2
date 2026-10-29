@@ -56,17 +56,17 @@ Streamlit Cloud usa 3.12 por defecto). `uv` lo descargará solo en el paso 6.
 
 ## 5. Tu repositorio y el kit del curso
 
-El proyecto de tu grupo **nace de la rama `base`** del repositorio del curso: trae la plantilla
+El proyecto de tu grupo **nace de la rama `feature/estudiantes`** del repositorio del curso: trae la plantilla
 lista (`src/`, `notebooks/`, `tests/`, `CLAUDE.md`, `especificacion-proyecto.md`…) y el material de
 consulta. **No se copian archivos a mano.**
 
 1. Crea una cuenta en <https://github.com> (ver `git-github-basico.md`).
 2. **Una persona del grupo** crea un repositorio **público y vacío** (sin README, sin `.gitignore`).
    Público es necesario para desplegar la app gratis.
-3. Esa persona clona **solo la rama `base`** y la apunta al repositorio del grupo:
+3. Esa persona clona **solo la rama `feature/estudiantes`** y la apunta al repositorio del grupo:
 
    ```bash
-   git clone --branch base --single-branch https://github.com/palenciaronald/ab-casos-avanzados-2026.git mi-proyecto
+   git clone --branch feature/estudiantes --single-branch https://github.com/palenciaronald/ab-casos-avanzados2026v2.git mi-proyecto
    cd mi-proyecto
    git remote set-url origin https://github.com/TU-USUARIO/TU-REPOSITORIO.git
    git branch -M main

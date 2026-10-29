@@ -233,4 +233,4 @@ Cada grupo entrega **una ficha**. Son 11 campos:
 El instructor pasa por cada grupo.
 
 *Tarea de hoy:* completar la ficha y crear el repositorio del grupo (una persona lo crea vacío, clona la
-rama `base` del curso y la apunta a ese repo) y compartir el enlace.
+rama `feature/estudiantes` del curso y la apunta a ese repo) y compartir el enlace.

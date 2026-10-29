@@ -105,3 +105,6 @@ curso/**/*privado*
 
 # Contexto de traspaso entre sesiones de IA — NUNCA versionar
 CONTEXTO-TRASPASO.md
+
+# Modelo intermedio de la etapa 7 (el que se entrega es model.joblib)
+ejemplo/models/final_pipeline.joblib
