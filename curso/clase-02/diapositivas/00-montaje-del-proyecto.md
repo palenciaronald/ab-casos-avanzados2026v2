@@ -213,7 +213,7 @@ Tabla completa en `curso/guias/montaje-proyecto.md`.
 
 # A montar el proyecto
 
-**60 minutos** (40 de montaje y 20 de entorno de IA). Sigan `curso/guias/montaje-proyecto.md` y luego `curso/guias/entorno-ia-specify.md`.
+**40 minutos** (repo, datos y Claude Code, y luego el entorno de IA). Sigan `curso/guias/montaje-proyecto.md` y luego `curso/guias/entorno-ia-specify.md`.
 Cuando tengan las casillas, avisen al instructor.
 
 *Después: EDA.*

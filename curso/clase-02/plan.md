@@ -1,107 +1,111 @@
-# Clase 2 · Viernes 30 de octubre — Montaje, EDA y preprocesamiento
+# Clase 2 · Viernes 30 de octubre — Pitches, entorno de trabajo, EDA y preprocesamiento
 
-**Duración:** 4 horas · **Hito del día:** **H1** (ficha aprobada, proyecto montado, EDA y preprocesamiento reproducible).
+**Duración:** 4 horas · **Hito del día:** **H1** (ficha aprobada, proyecto montado, caso de negocio, EDA y preprocesamiento reproducible).
 
 ## Objetivos
 
 Al terminar la clase 2, cada grupo tiene:
 
-1. Una **ficha de caso aprobada** por el instructor.
+1. Una **ficha de caso aprobada** por el instructor, después de presentar su proyecto en 3 minutos.
 2. El **proyecto montado y verificado**: repositorio propio creado desde la rama `feature/estudiantes`, entorno con
-   Python 3.12, `.env` con la conexión a Databricks (o el respaldo local), `especificacion-proyecto.md`
-   completada y `CLAUDE.md` ajustado, todo subido a GitHub.
-3. Un **EDA** que termina en decisiones escritas (mínimo 5, cada una justificada).
-4. Un **preprocesamiento reproducible**: la limpieza como código, la partición por la unidad de
+   Python 3.12, datos en `data/raw/`, `.env` con la conexión a Databricks (o el respaldo local),
+   `especificacion-proyecto.md` completada y `CLAUDE.md` ajustado, todo subido a GitHub.
+3. El **entorno de IA listo**: constitución ajustada, Spec Kit (`/speckit-…`) y subagentes funcionando en Claude Code.
+4. El **caso de negocio escrito en el notebook** `01_caso_negocio` (pregunta, costos, línea base, métrica).
+5. Un **EDA** que termina en decisiones escritas (mínimo 5, cada una justificada).
+6. Un **preprocesamiento reproducible**: la limpieza como código, la partición por la unidad de
    análisis correcta, datos limpios y **al menos una prueba** que verifica la partición.
-5. La **sección del reporte** de caso y EDA.
 
 ## Cómo se organiza la sesión
 
-El caso de negocio ya se trabajó en la clase 1 (jueves 29 de octubre): hoy se **aprueba** y se pasa a montar y a analizar. El
-instructor muestra el ejemplo (CreditSight) **en tres demos cortas**, cada una justo antes de que
-los grupos trabajen esa etapa:
+Primero se conocen los proyectos (pitches) y se deja **un entorno de trabajo común y funcionando**. Desde ahí, la clase
+tiene un ritmo fijo: **el instructor explica con el ejemplo ya ejecutado (CreditSight) y, justo después, cada grupo hace lo
+mismo con su proyecto**. No se programa en vivo: se recorren las decisiones de un ejemplo terminado.
 
 | Demo | Máximo | Material |
 |---|---|---|
-| **Montaje** | 10 min | `diapositivas/00-montaje-del-proyecto.md` |
+| **Entorno** (dentro del bloque de entorno) | 10 min | `diapositivas/00-montaje-del-proyecto.md` |
+| **A · Caso de negocio** | 10 min | notebook `01_caso_negocio` (`diapositivas/01-caso-eda-preproc.md`, secciones 1–3, diap. 3–5) |
 | **B · EDA** | 20 min | `diapositivas/01-caso-eda-preproc.md` (secciones 4–8, diap. 6–10) · notebook `02_eda` |
 | **C · Preprocesamiento y fuga** | 20 min | `diapositivas/01-caso-eda-preproc.md` (secciones 9–13, diap. 11–15) · notebook `03_preprocesamiento` |
 
-**No se programa en vivo:** se recorren las decisiones de un ejemplo ya ejecutado. Los notebooks de
-la clase (los del instructor y los esqueletos de los estudiantes) están en `notebooks/`. Las secciones 1–3
-de la demo 01 (el caso de negocio) quedan como apoyo para quien necesite repasar la matriz de costos.
-
-> Si el grupo va muy adelantado, las demos B y C se pueden dar seguidas y dedicar más tiempo al
-> trabajo de grupos.
+Los notebooks de la clase (los del instructor y los esqueletos de los estudiantes) están en `notebooks/`.
 
 ## Agenda
 
 | Hora | Min | Bloque | Material |
 |---|---|---|---|
-| 0:00–0:30 | 30 | **Aprobación de fichas** (en paralelo: grupos cierran pendientes de instalación) | `curso/evaluacion/revision-de-fichas.md` |
-| 0:30–1:20 | 50 | **Montaje del proyecto**: demo (10) + trabajo de grupos (40) | `curso/guias/montaje-proyecto.md`, `scripts/verificar_entorno.py` |
-| 1:20–1:40 | 20 | **Entorno de desarrollo con IA:** constitución, Spec Kit y subagentes | `curso/guias/entorno-ia-specify.md` (pasos 12.1 a 12.4) |
-| 1:40–2:00 | 20 | **Demo B:** EDA | `diapositivas/01-caso-eda-preproc.md` (diap. 6–10) |
-| 2:00–2:40 | 40 | Trabajo de grupos: **EDA** | `curso/kit-estudiante/guia-eda-y-preprocesamiento.md` |
-| 2:40–2:50 | 10 | Descanso | — |
-| 2:50–3:10 | 20 | **Demo C:** preprocesamiento y fuga | `diapositivas/01-caso-eda-preproc.md` (diap. 11–15) |
-| 3:10–3:50 | 40 | Trabajo de grupos: **limpieza, partición y pruebas** | `curso/kit-estudiante/checklist-revision-ia.md` |
-| 3:50–4:00 | 10 | **Cierre de H1** y tarea autónoma | `specs/001-curso-v2-end-to-end/contracts/etapas.md` |
+| 0:00–0:30 | 30 | **Pitches:** 10 grupos × **3 min máximo** (el instructor aprueba o devuelve las fichas) | `curso/evaluacion/revision-de-fichas.md` |
+| 0:30–1:10 | 40 | **Entorno de trabajo:** repo, datos, `.env`, Claude Code, Spec Kit, constitución, subagentes | `curso/guias/montaje-proyecto.md`, `curso/guias/entorno-ia-specify.md` |
+| 1:10–1:20 | 10 | **Demo A:** caso de negocio | `01_caso_negocio` del instructor |
+| 1:20–1:35 | 15 | Trabajo de grupos: **caso de negocio** en su notebook | `notebooks/01_caso_negocio.ipynb` |
+| 1:35–1:55 | 20 | **Demo B:** EDA | `diapositivas/01-caso-eda-preproc.md` (diap. 6–10) |
+| 1:55–2:35 | 40 | Trabajo de grupos: **EDA** | `curso/kit-estudiante/guia-eda-y-preprocesamiento.md`, `especificaciones/02-eda.md` |
+| 2:35–2:45 | 10 | Descanso | — |
+| 2:45–3:05 | 20 | **Demo C:** preprocesamiento y fuga | `diapositivas/01-caso-eda-preproc.md` (diap. 11–15) |
+| 3:05–3:50 | 45 | Trabajo de grupos: **limpieza, partición y pruebas** | `especificaciones/03-preprocesamiento.md`, `curso/kit-estudiante/checklist-revision-ia.md` |
+| 3:50–4:00 | 10 | **Cierre de H1** (1 min por grupo) y tarea autónoma | `specs/001-curso-v2-end-to-end/contracts/etapas.md` |
 
 La lista de control del instructor (puntos de control y banco de preguntas orales) está en
 `lista-de-control.md`.
 
+> **Los tiempos son tope, no meta.** Los pitches de 3 minutos con 10 grupos ocupan los 30 minutos **sin preguntas ni cambios de
+> turno**: usa cronómetro visible, las preguntas van a los puntos de control, y los grupos pasan en orden para que el siguiente
+> esté de pie cuando termina el anterior.
+
 ## Detalle por bloque
 
-### 0:00 · Aprobación de fichas (30 min)
-- Devolver las fichas de la clase 1: **aprobadas**, **devueltas** (con observaciones concretas) o
-  **pendientes**. El protocolo y las observaciones modelo están en `curso/evaluacion/revision-de-fichas.md`.
-- Mientras el instructor pasa por cada grupo, **los demás** terminan lo que quedó pendiente de la
-  instalación de la clase 1 (`python scripts/verificar_entorno.py`) y empiezan el montaje (una persona crea el repo vacío y clona la rama `feature/estudiantes`; los demás clonan el repo del grupo).
-- **Regla:** ningún grupo avanza al EDA sin ficha aprobada. Un grupo sin caso a las 0:30 se sienta con
-  el instructor durante el montaje (plan de rescate en `revision-de-fichas.md`).
+### 0:00 · Pitches (30 min)
+- **10 grupos, 3 minutos cada uno, ni uno más.** Sin diapositivas: de pie o desde la mesa, con la ficha a la vista.
+- **Qué debe decir cada grupo (en este orden):** (1) la pregunta de negocio en una frase, (2) el dataset (de dónde, cuántas filas),
+  (3) **qué es una fila** y si hay entidades repetidas, (4) qué error cuesta más y qué métrica usarán.
+- **Tú, mientras escuchas:** marca los 11 criterios de `revision-de-fichas.md` en la hoja de registro. No interrumpas; anota la
+  pregunta para después.
+- **Decisión:** `aprobada` o `devuelta`, con observación concreta. Se anuncia **al final de los 30 minutos**, no grupo por
+  grupo. Los devueltos corrigen **durante el bloque de entorno** y te lo muestran antes de la demo A.
+- **Regla:** ningún grupo avanza al EDA sin ficha aprobada. El que no la tenga a las 1:55 se sienta contigo (plan de rescate
+  en `revision-de-fichas.md`).
+- Las fichas se leen **la víspera**: el pitch es para presentarlas, no para descubrirlas.
 
-### 0:30 · Montaje del proyecto (50 min)
-- **Demo (10 min):** `00-montaje-del-proyecto.md`. Se muestra cómo está montado `ejemplo/`: mapa del
-  repo, `.env` y Databricks (perfil o token, `EXPERIMENT_DIR`, respaldo local), `especificacion-proyecto.md`,
-  `CLAUDE.md` y el script de verificación.
-- **Trabajo de grupos (40 min):** cada grupo sigue `curso/guias/montaje-proyecto.md`: repo propio (clonado
-  de la rama `feature/estudiantes`), entorno, `.env`, carpeta de experimentos en Databricks, especificación completada con su
-  ficha, dataset en `data/raw/`, primer commit y push.
-- **Punto de control 1 (1:20):** ficha aprobada **y** `python scripts/verificar_entorno.py` sin ningún
-  `FALTA` **y** primer push hecho. Un grupo que no llega pasa a apoyo individual; no se bloquea la clase.
-- En la demo del montaje, **3 min** para mostrar el entorno de IA (constitución, `/speckit`, `/agents`): `00-montaje-del-proyecto.md`, diap. 7.
-- Si Databricks no conecta, se pone `MLFLOW_FORCE_LOCAL=1` y se sigue: el aviso del script lo indica.
+### 0:30 · Entorno de trabajo (40 min)
+Todo en una sola pasada, con el instructor mostrando en pantalla y los grupos haciendo lo mismo en sus equipos:
 
-### 1:40 · Demo B — EDA (20 min)
-- Secciones 4–8 de la demo (diap. 6–10) y `02_eda`. Hilo: **cada hallazgo termina en una decisión escrita**
-  (tabla de 10 decisiones de CreditSight en `ejemplo/reports/01_eda.md`).
-- Puntos a subrayar: datos que llegan como texto → basura; salto brusco tras p95–p97 → corrupción;
-  variables que **deberían** ser estables; vacío que significa algo ("sin préstamos").
-- Preguntas para los grupos: *¿qué variable de su dataset debería ser estable y no lo es? ¿qué
-  significa un vacío en su dataset?*
+1. **Repositorio y datos (≈ 15 min):** una persona crea el repo vacío en GitHub y clona la rama `feature/estudiantes` apuntándola
+   a su repo; los demás clonan **el del grupo**. Nombre del paquete, entorno de Python 3.12, `.env`, dataset en `data/raw/`,
+   `python scripts/verificar_entorno.py` sin `FALTA`, primer push. Guía: `curso/guias/montaje-proyecto.md`.
+2. **Claude Code funcionando (≈ 5 min):** abierto **dentro de la carpeta del repo**; comprobar que lee `CLAUDE.md`.
+3. **Entorno de IA (≈ 20 min):** guía `curso/guias/entorno-ia-specify.md`. Se ajusta la **constitución** con
+   `/speckit-constitution`, se comprueba que aparecen los `/speckit-…`, se conocen los **tres subagentes** (`/agents`) y se
+   explica qué es una **especificación** (`especificaciones/`, `specs/`) y un **`tasks.md`** (la lista de trabajo del grupo).
+   Crear un subagente propio queda de tarea antes de la clase 4.
 
-### 1:20 · Entorno de desarrollo con IA (20 min)
-- Con el repo ya subido, cada grupo sigue `curso/guias/entorno-ia-specify.md`: **12.1** ajustar la constitución con
-  `/speckit-constitution` (10 min, una sola pantalla), **12.2** comprobar `/speckit-…` (y `pwsh` en Mac), **12.3** conocer los
-  tres subagentes (`/agents`) y **12.4** crear uno propio si da el tiempo (si no, queda de tarea antes de la clase 4).
-- **Todo viene instalado** en la rama `feature/estudiantes` (`.specify/`, `.claude/skills/`, `.claude/agents/`) y viaja con el repo.
-- **Punto de control 1b (1:40):** constitución con el nombre del proyecto y la unidad de análisis, `/speckit-…` y `/agents`
-  visibles, y un commit subido. Preguntar a quien no escribió la constitución: *¿qué principio es el más importante y por qué?*
-- Hoy **no** se recorre el flujo completo (specify → plan → tasks → implement): se practica con la limpieza si sobra tiempo
-  y es obligatorio desde la clase 3. El `tasks.md` es la lista de trabajo del grupo.
+- **Databricks hoy no bloquea:** la conexión se usa desde la clase 3 (`MLFLOW_FORCE_LOCAL=1` si no conecta). Si no alcanza el
+  tiempo, el grupo la termina de tarea esta noche con `curso/guias/databricks-mlflow.md`.
+- **Punto de control 1 (1:10):** ficha aprobada, repo clonado por todos con el primer push hecho, `verificar_entorno.py` sin
+  `FALTA`, constitución ajustada con el nombre del proyecto y `/speckit` visible. Quien no llega pasa a apoyo individual; no
+  se bloquea la clase.
+- Se necesita **una persona de apoyo**: este es el bloque con más dudas técnicas.
 
-### 2:00 · Trabajo de grupos — EDA (40 min)
-- Primeros 10 min: cada grupo llena las secciones 1 y 2 de `especificaciones/02-eda.md` (qué esperan encontrar y qué van a medir) **antes** de abrir el notebook.
-- Cada grupo trabaja en `notebooks/02_eda.ipynb` de su repo (esqueleto de la plantilla), con la guía
-  `guia-eda-y-preprocesamiento.md` y el kit de prompts por etapa; completa las secciones 3 y 4 de la especificación.
-- **Punto de control 2 (2:30):** cada grupo tiene una lista de **al menos 3 decisiones** ya escritas con
-  su motivo (las 5 completas se cierran en el bloque siguiente). Preguntar a un integrante distinto de
-  quien escribió: *¿por qué esa decisión?*
+### 1:10 · Demo A — Caso de negocio (10 min) y trabajo (15 min)
+- **Demo:** `01_caso_negocio` de CreditSight: la pregunta de negocio, la **matriz de costos** (equivocarse no cuesta lo mismo),
+  la línea base de dos estrategias sin modelo y la métrica de éxito. Es la ficha aprobada convertida en números.
+- **Trabajo (15 min):** cada grupo completa **su** `notebooks/01_caso_negocio.ipynb` con lo que dijo en el pitch: pregunta,
+  quién decide y cómo, qué cuesta cada error, línea base y métrica. Lo mismo queda resumido en `reports/00_caso.md`.
+- Pregunta para los grupos: *¿cuál de sus dos errores cuesta más, y cuántas veces más?*
 
-### 2:50 · Demo C — preprocesamiento y fuga (20 min)
-- Secciones 9–13 de la demo (diap. 11–15) y `03_preprocesamiento`. Hilo: de decisiones a **código con pruebas**
-  (`src/<paquete>/data/`); el notebook solo orquesta.
+### 1:35 · Demo B — EDA (20 min) y trabajo (40 min)
+- **Demo:** secciones 4–8 (diap. 6–10) y `02_eda`. Hilo: **cada hallazgo termina en una decisión escrita**
+  (tabla de 10 decisiones de CreditSight en `ejemplo/reports/01_eda.md`). Puntos a subrayar: datos que llegan como texto →
+  basura; salto brusco tras p95–p97 → corrupción; variables que **deberían** ser estables; vacío que significa algo.
+- **Trabajo:** primeros 10 min, secciones 1 y 2 de `especificaciones/02-eda.md` (qué esperan y qué van a medir) **antes** de abrir
+  el notebook. Después trabajan en `notebooks/02_eda.ipynb` y completan las secciones 3 y 4.
+- Preguntas para los grupos: *¿qué variable de su dataset debería ser estable y no lo es? ¿qué significa un vacío?*
+- **Punto de control 2 (2:20):** **al menos 3 decisiones** escritas con su motivo (las 5 se cierran en el bloque siguiente).
+  Preguntar a un integrante distinto de quien escribió: *¿por qué esa decisión?*
+
+### 2:45 · Demo C — preprocesamiento y fuga (20 min) y trabajo (45 min)
+- **Demo:** secciones 9–13 (diap. 11–15) y `03_preprocesamiento`. De decisiones a **código con pruebas** (`src/<paquete>/data/`);
+  el notebook solo orquesta.
 - **Momento central (5 min):** la fuga por partición. Mismo modelo y datos; solo cambia cómo se parte:
 
   | Partición | Clientes en ambos lados | F1 macro | Costo esperado |
@@ -110,25 +114,20 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
   | Por cliente (bien) | 0 | 0,695 | 0,73 |
 
 - Pregunta de transferencia: *¿cuál es su unidad de análisis? ¿qué se repite en sus filas?*
-
-### 3:10 · Trabajo de grupos — limpieza, partición y pruebas (40 min)
-- Primeros 10 min: cada grupo llena `especificaciones/03-preprocesamiento.md` (unidad, partición, reglas, pruebas) **antes** de pedirle código a Claude.
-- Cada grupo convierte sus decisiones del EDA en código en `src/<paquete>/data/` y crea al menos una
-  prueba que verifica la **partición por su unidad de análisis**.
-- Se pide a Claude con el kit, pero con la regla del curso: **revisar el resultado** con los subagentes `revisor-de-codigo-ia` y `auditor-de-fuga` y con
-  `kit-estudiante/checklist-revision-ia.md` (¿corre desde cero?, ¿filtra información?, ¿se entiende
-  cada línea?).
-- **Punto de control 3 (3:40):** cada grupo muestra (1) la limpieza corriendo de principio a fin,
-  (2) cómo parte los datos y por qué, y (3) `pytest` en verde. Ningún grupo termina sin declarar su
-  unidad de análisis por escrito.
+- **Trabajo:** primeros 10 min, `especificaciones/03-preprocesamiento.md` completa **antes** de pedirle código a Claude. Luego
+  convierten las decisiones del EDA en código y crean al menos una prueba de la **partición por su unidad de análisis**. Revisan
+  lo que genera Claude con los subagentes `revisor-de-codigo-ia`, `escritor-de-pruebas` y `auditor-de-fuga`, y con
+  `kit-estudiante/checklist-revision-ia.md` (¿corre desde cero?, ¿filtra información?, ¿se entiende cada línea?).
+- **Punto de control 3 (3:40):** cada grupo muestra (1) la limpieza corriendo de principio a fin, (2) cómo parte los datos y por
+  qué, y (3) `pytest` en verde. Ningún grupo termina sin declarar su unidad de análisis por escrito.
 
 ### 3:50 · Cierre de H1 (10 min)
-- **Un minuto por grupo:** su unidad de análisis y un hallazgo que no esperaban. El tiempo se ajusta
-  a la cantidad de grupos del día.
-- Revisión de los criterios de **H1** (abajo) y qué falta por grupo.
+- **Un minuto por grupo:** su unidad de análisis y un hallazgo que no esperaban.
+- Qué falta por grupo, según los criterios de **H1** (abajo).
 - **Tarea para esta noche (la clase 3 es mañana, sábado 31 de octubre):** dejar el repositorio en orden y **subido a GitHub**
-  (con lo pendiente de H1 si lo hay), y leer `curso/kit-estudiante/guia-modelado-y-optimizacion.md`. **No hay que dejar
-  el pipeline base hecho:** la clase 3 empieza construyéndolo (preprocesamiento + un modelo simple) antes de entrar a las variables.
+  (con lo pendiente de H1 si lo hay), terminar la conexión con Databricks si quedó pendiente, y leer
+  `curso/kit-estudiante/guia-modelado-y-optimizacion.md`. **No hay que dejar el pipeline base hecho:** la clase 3 empieza
+  construyéndolo (preprocesamiento + un modelo simple) antes de entrar a las variables.
 
 ## Criterios de aceptación de H1
 
@@ -146,10 +145,11 @@ Tomados de `specs/001-curso-v2-end-to-end/contracts/etapas.md`:
 |---|---|
 | Ficha de caso aprobada | `reports/00_caso.md` |
 | Proyecto montado | repo propio en GitHub, `.env` (no se sube), `especificacion-proyecto.md` completada |
-| EDA con decisiones | `notebooks/02_eda.ipynb` y `reports/01_eda.md` |
-| Limpieza y partición como código | `src/<paquete>/data/` + `tests/` |
 | Entorno de IA | `.specify/memory/constitution.md` ajustada, subagentes probados, commit subido |
+| Caso de negocio | `notebooks/01_caso_negocio.ipynb` |
+| EDA con decisiones | `notebooks/02_eda.ipynb` y `reports/01_eda.md` |
 | Especificaciones llenas | `especificaciones/02-eda.md` y `especificaciones/03-preprocesamiento.md` |
+| Limpieza y partición como código | `src/<paquete>/data/` + `tests/` |
 | Datos limpios y partición | `data/processed/` (se regeneran con el notebook 03) |
 | **Sección del reporte** de caso y EDA | `reports/` (primera parte del informe técnico) |
 
@@ -158,6 +158,7 @@ Tomados de `specs/001-curso-v2-end-to-end/contracts/etapas.md`:
 - **La prueba no se toca:** se guarda la partición y no se vuelve a mirar hasta la etapa de
   validación final.
 - **Decisiones antes que código:** primero la decisión con su motivo, luego el código.
+- **Especificación antes que código:** `especificaciones/` se llena antes de pedirle algo a Claude.
 - **Sin ficha aprobada no hay EDA.**
 - **Sin `.env` en GitHub:** si el script de verificación marca `.env` fuera de `.gitignore`, se arregla antes de cualquier push.
 - **Cada integrante explica lo que generó la IA:** el instructor pregunta a quien no escribió el código.
@@ -165,9 +166,11 @@ Tomados de `specs/001-curso-v2-end-to-end/contracts/etapas.md`:
 ## Lo que el instructor debe tener listo
 
 - [ ] `00-montaje-del-proyecto.md` y `01-caso-eda-preproc.md` exportados a HTML; notebooks `01`–`03` de `ejemplo/` ejecutados y abiertos.
-- [ ] Fichas de la clase 1 revisadas con observaciones concretas (`revision-de-fichas.md`).
-- [ ] `lista-de-control.md` impresa o abierta, con una fila por grupo.
+- [ ] Fichas de la clase 1 **leídas la víspera**, con los 11 criterios marcados y observaciones listas (`revision-de-fichas.md`).
+- [ ] `lista-de-control.md` impresa o abierta, con una fila por grupo (10 grupos).
+- [ ] Cronómetro visible para los pitches (3 min) y para cada bloque.
 - [ ] Un repositorio de GitHub de prueba y un `.env` válido para demostrar el montaje sin imprevistos.
-- [ ] La rama `feature/estudiantes` clonada en la carpeta de prueba, con Claude Code abierto **dentro**: `/speckit` y `/agents` visibles. Si algún grupo usa Mac, `pwsh` instalado.
+- [ ] La rama `feature/estudiantes` clonada en una carpeta de prueba, con Claude Code abierto **dentro**: `/speckit` y `/agents`
+  visibles. Si algún grupo usa Mac, `pwsh` instalado.
 - [ ] `ejemplo/reports/00_caso.md`, `ejemplo/reports/01_eda.md` y `ejemplo/especificacion-proyecto.md` a mano como modelos.
-- [ ] Una persona de apoyo para el bloque de montaje (es el de más dudas técnicas).
+- [ ] Una persona de apoyo para el bloque de entorno (es el de más dudas técnicas).

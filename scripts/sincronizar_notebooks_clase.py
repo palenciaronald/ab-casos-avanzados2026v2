@@ -38,7 +38,7 @@ for base in [Path.cwd().resolve(), *Path.cwd().resolve().parents]:
 # esqueletos que reciben los estudiantes (fuente: plantilla del kit), copiados SIN cambios
 PLANTILLA = ROOT / "curso" / "kit-estudiante" / "plantilla-repo" / "notebooks"
 ESQUELETOS = {
-    "clase-02": ["02_eda", "03_preprocesamiento"],
+    "clase-02": ["01_caso_negocio", "02_eda", "03_preprocesamiento"],
     "clase-03": ["04_features", "05_torneo", "06_optimizacion"],
     "clase-04": ["07_validacion_interpretacion", "08_registro_modelo", "09_inferencia"],
 }
