@@ -60,8 +60,8 @@ contrato/
 curso_Leo_IA/
 
 # Herramientas locales: Spec Kit, agente y Databricks
-.claude/
-.specify/
+/.claude/
+/.specify/
 databricks.yml
 
 # Credenciales locales — NUNCA versionar

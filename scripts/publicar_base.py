@@ -55,8 +55,9 @@ RUTAS = [
 IGNORAR = shutil.ignore_patterns("__pycache__", ".ipynb_checkpoints", "*.pyc", ".pytest_cache", "*.db", ".verify-*", "mlruns", "*.pkl", "*.joblib")
 
 # ---- guardas: si algo de esto aparece en lo que se entrega, el script aborta ----
-PROHIBIDO_EN_NOMBRE = [r"(^|/)\.env$", r"lista-de-control", r"revision-de-fichas", r"(^|/)specs/", r"(^|/)\.specify/",
-                       r"(^|/)\.claude/", r"/plan\.md$", r"(^|/)contrato", r"soluciones", r"^(?!.*/reports/).*\.csv$", r"\.joblib$", r"\.pkl$", r"\.parquet$", r"(^|/)mlruns(/|$)"]
+# `.specify/` y `.claude/skills|agents` SÍ se entregan (entorno de IA de la plantilla). Todo lo demás de .claude/ (settings, memoria) no.
+PROHIBIDO_EN_NOMBRE = [r"(^|/)\.env$", r"lista-de-control", r"revision-de-fichas", r"(^|/)specs/",
+                       r"(^|/)\.claude/(?!skills/speckit-|agents/)", r"(^|/)\.specify/(feature\.json|extensions\.yml)$", r"/plan\.md$", r"(^|/)contrato", r"soluciones", r"^(?!.*/reports/).*\.csv$", r"\.joblib$", r"\.pkl$", r"\.parquet$", r"(^|/)mlruns(/|$)"]
 PROHIBIDO_EN_CONTENIDO = [r"ronaldpalencia", r"dbc-[0-9a-f]{8}", r"\bdapi[0-9a-f]{20,}", r"0cd50471", r"banco de preguntas"]
 AVISOS_EN_CONTENIDO = [r"PENDIENTE: instructor"]
 

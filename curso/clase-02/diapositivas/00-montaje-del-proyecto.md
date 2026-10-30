@@ -156,7 +156,31 @@ git push
 
 ---
 
-# 7 · Los errores que más van a ver
+# 7 · El entorno de IA: constitución, Spec Kit y subagentes
+
+Lo que viene **ya instalado** en la rama y se ajusta en 20 minutos:
+
+| Pieza | Dónde | Qué hace |
+|---|---|---|
+| **Constitución** | `.specify/memory/constitution.md` | Los **principios** del proyecto (sembrados con las reglas del curso) |
+| **Spec Kit** | `/speckit-…` | **Especificación → plan → tareas → código**, un archivo por paso |
+| **`tasks.md`** | `specs/001-…/` | La **lista de trabajo**: tareas pequeñas con su archivo y su prueba |
+| **Subagentes** | `.claude/agents/` | `auditor-de-fuga`, `escritor-de-pruebas`, `revisor-de-codigo-ia` |
+
+```text
+/speckit-constitution → specify → clarify → plan → tasks → analyze → implement
+```
+
+> Primero **leen y aprueban** cada archivo; después Claude escribe código. Guía: `entorno-ia-specify.md`.
+
+<!--
+Demo (3 min): abrir la constitución, ejecutar /speckit-constitution con un dato del grupo, mostrar /speckit y /agents.
+Subrayar: nada se instala; viaja con el repo. En Mac hace falta pwsh.
+-->
+
+---
+
+# 8 · Los errores que más van a ver
 
 | Síntoma | Solución rápida |
 |---|---|
@@ -180,6 +204,7 @@ Tabla completa en `curso/guias/montaje-proyecto.md`.
 - [ ] `especificacion-proyecto.md` completa (secciones 1 a 6)
 - [ ] Dataset en `data/raw/`, **sin modificar** y sin subir
 - [ ] `verificar_entorno.py` con **0 por arreglar** y primer **commit en GitHub**
+- [ ] Constitución ajustada, `/speckit-…` y subagentes visibles, y todo **subido**
 
 ---
 
@@ -188,7 +213,7 @@ Tabla completa en `curso/guias/montaje-proyecto.md`.
 
 # A montar el proyecto
 
-**40 minutos.** Sigan `curso/guias/montaje-proyecto.md`.
-Cuando tengan las 8 casillas, avisen al instructor.
+**60 minutos** (40 de montaje y 20 de entorno de IA). Sigan `curso/guias/montaje-proyecto.md` y luego `curso/guias/entorno-ia-specify.md`.
+Cuando tengan las casillas, avisen al instructor.
 
 *Después: EDA.*
