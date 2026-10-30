@@ -80,8 +80,9 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
   significa un vacío en su dataset?*
 
 ### 1:40 · Trabajo de grupos — EDA (45 min)
+- Primeros 10 min: cada grupo llena las secciones 1 y 2 de `especificaciones/02-eda.md` (qué esperan encontrar y qué van a medir) **antes** de abrir el notebook.
 - Cada grupo trabaja en `notebooks/02_eda.ipynb` de su repo (esqueleto de la plantilla), con la guía
-  `guia-eda-y-preprocesamiento.md` y el kit de prompts por etapa.
+  `guia-eda-y-preprocesamiento.md` y el kit de prompts por etapa; completa las secciones 3 y 4 de la especificación.
 - **Punto de control 2 (2:15):** cada grupo tiene una lista de **al menos 3 decisiones** ya escritas con
   su motivo (las 5 completas se cierran en el bloque siguiente). Preguntar a un integrante distinto de
   quien escribió: *¿por qué esa decisión?*
@@ -99,6 +100,7 @@ La lista de control del instructor (puntos de control y banco de preguntas orale
 - Pregunta de transferencia: *¿cuál es su unidad de análisis? ¿qué se repite en sus filas?*
 
 ### 2:55 · Trabajo de grupos — limpieza, partición y pruebas (50 min)
+- Primeros 10 min: cada grupo llena `especificaciones/03-preprocesamiento.md` (unidad, partición, reglas, pruebas) **antes** de pedirle código a Claude.
 - Cada grupo convierte sus decisiones del EDA en código en `src/<paquete>/data/` y crea al menos una
   prueba que verifica la **partición por su unidad de análisis**.
 - Se pide a Claude con el kit, pero con la regla del curso: **revisar el resultado** con
@@ -134,6 +136,7 @@ Tomados de `specs/001-curso-v2-end-to-end/contracts/etapas.md`:
 | Proyecto montado | repo propio en GitHub, `.env` (no se sube), `especificacion-proyecto.md` completada |
 | EDA con decisiones | `notebooks/02_eda.ipynb` y `reports/01_eda.md` |
 | Limpieza y partición como código | `src/<paquete>/data/` + `tests/` |
+| Especificaciones llenas | `especificaciones/02-eda.md` y `especificaciones/03-preprocesamiento.md` |
 | Datos limpios y partición | `data/processed/` (se regeneran con el notebook 03) |
 | **Sección del reporte** de caso y EDA | `reports/` (primera parte del informe técnico) |
 
